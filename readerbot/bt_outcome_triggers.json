@@ -1,0 +1,11 @@
+{ "(Chloe wins)" : ["Firewalk Bouncer Backtalk Challenge_won","David's Backtalk Challenge_won","Principal Wells' Backtalk Challenge_won","Dragonkin Intimidation Challenge_won", "Drew's Backtalk Challenge_won", "Picnic Couple Backtalk Challenge_won", "James Backtalk Challenge_won", "Frank Backtalk Challenge_won", "Skip Backtalk Challenge_won", "Victoria Backtalk Challenge_won", "tt_challenge_won", "Elliot Backtalk Challenge_won"],
+ "(Chloe loses)":  ["Firewalk Bouncer Backtalk Challenge_lost","David's Backtalk Challenge_lost","Principal Wells' Backtalk Challenge_lost","Dragonkin Intimidation Challenge_lost", "Drew's Backtalk Challenge_lost", "Picnic Couple Backtalk Challenge_lost", "James Backtalk Challenge_lost", "Frank Backtalk Challenge_lost", "Skip Backtalk Challenge_lost", "Victoria Backtalk Challenge_lost", "tt_challenge_lost", "Elliot Backtalk Challenge_lost"],
+"(Chloe won)" :["Picnic Couple Backtalk Challenge_won"],
+"(Chloe lost)":["Picnic Couple Backtalk Challenge_lost"],
+"(Won backtalk)": ["Firewalk Bouncer Backtalk Challenge_won", "Drew's Backtalk Challenge_won", "Drew's Backtalk Challenge_won", "Skip Backtalk Challenge_won", "Drew Hospital Backtalk Challenge_won"],
+"(Failed backtalk)" : ["Firewalk Bouncer Backtalk Challenge_lost", "Drew's Backtalk Challenge_lost", "Drew's Backtalk Challenge_lost", "Skip Backtalk Challenge_lost", "Drew Hospital Backtalk Challenge_lost", "Dragonkin Intimidation Challenge_lost"],
+"(Passed Backtalk challenge)": ["Well's Office Backtalk Challenge_won", "David's Backtalk Challenge_won"],
+"(Failed Backtalk challenge)": ["Well's Office Backtalk Challenge_lost", "David's Backtalk Challenge_lost"],
+"(Won Backtalk challenge)":["Picnic Couple Backtalk Challenge_won", "Picnic Couple Backtalk Challenge_won"],
+"(Failed challenge)":["Picnic Couple Backtalk Challenge_lost", "Picnic Couple Backtalk Challenge_lost"]
+}

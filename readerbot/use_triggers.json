@@ -1,0 +1,329 @@
+{
+	"(Bought weed from Frank)": "bought_weed",
+	"Slip money in Joyce's purse (stole vendor's money and didn't buy weed from Frank)": {
+		"and": ["stole_money", "!bought_weed"]
+	},
+	"(Attacked Skeevy Guys)": "attacked_skeevy_guys",
+	"(Didn't attack Skeevy Guys)": "!attacked_skeevy_guys",
+	"(Ran from Skeevy Guys)": "!attacked_skeevy_guys",
+	"(Wore any other outfit)": {
+		"or": ["!wore_firewalk", "!set_outfit1"]
+	},
+	"(Wore Firewalk shirt)": {
+		"or": ["!set_outfit1", "wore_firewalk"]
+	},
+	"(Didn't buy weed from Frank)": "!bought_weed",
+	"(Bought weed and didn't get sprayed by Justin)": {
+		"and": ["bought_weed", "!sprayed"]
+	},
+	"(Bought weed and got sprayed by Justin)": {
+		"and": ["bought_weed", "sprayed"]
+	},
+	"(Brought the belt to Rachel)": "bring_belt",
+	"(Threw the belt to Rachel)": "!bring_belt",
+	"(High romance score)": "romance_high",
+	"(Low romance score)": "romance_low",
+	"(Said \"Something more\")": "something_more",
+	"(Said \"Friendship\")": "!something_more",
+	"Firewalk Bouncer Backtalk Challenge_won": "Firewalk Bouncer Backtalk Challenge_won",
+	"David's Backtalk Challenge_won": "David's Backtalk Challenge_won",
+	"Principal Wells' Backtalk Challenge_won": "Principal Wells' Backtalk Challenge_won",
+	"Dragonkin Intimidation Challenge_won": "Dragonkin Intimidation Challenge_won",
+	"Drew's Backtalk Challenge_won": "Drew's Backtalk Challenge_won",
+	"Picnic Couple Backtalk Challenge_won": "Picnic Couple Backtalk Challenge_won",
+	"Firewalk Bouncer Backtalk Challenge_lost": "!Firewalk Bouncer Backtalk Challenge_won",
+	"David's Backtalk Challenge_lost": "!David's Backtalk Challenge_won",
+	"Principal Wells' Backtalk Challenge_lost": "!Principal Wells' Backtalk Challenge_won",
+	"Dragonkin Intimidation Challenge_lost": "!Dragonkin Intimidation Challenge_won",
+	"Drew's Backtalk Challenge_lost": "!Drew's Backtalk Challenge_won",
+	"Picnic Couple Backtalk Challenge_lost": "!Picnic Couple Backtalk Challenge_won",
+	"(Chloe enters through the front door)": "Firewalk Bouncer Backtalk Challenge_won",
+	"(Was mean to Joyce)": "!understanding",
+	"(Was nice to Joyce)": "understanding",
+	"(Smoked weed on campus)": "bought_weed",
+	"(Didn't smoke weed on campus)": "!bought_weed",
+	"(Helped Nathan)": "step_in",
+	"(Didn't help Nathan)": "!step_in",
+	"(Passed Backtalk challenge with Drew)": "Drew's Backtalk Challenge_won",
+	"(Failed Backtalk challenge with Drew)": "Drew's Backtalk Challenge_lost",
+	"(Sabotaged Victoria's homework)": "sabotage_hw",
+	"(Didn't sabotage Victoria's homework)": "!sabotage_hw",
+	"(Said \"Yeah, fine.\")": "!bullshit",
+	"(Said \"Bullshit.\")": "bullshit",
+	"(Chloe was expelled)": {
+		"and": ["blame", "Well's Office Backtalk Challenge_won"]
+	},
+	"(Chloe was suspended)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Said she liked Skip's demo)": "liked_demo",
+	"(Said Skip's demo was okay / Didn't listen to demo)": {
+		"or": ["!liked_demo", "!skip_demo"]
+	},
+	"(Accepted Eliot's invitation)": "eliot_play",
+	"(Declined Eliot's invitation)": "!eliot_play",
+	"(Joyce defended Chloe)": "understanding",
+	"(Joyce didn't defend Chloe)": "!understanding",
+	"(Gave money to Joyce)": "joyce_money",
+	"(Saw job fair poster)": "jobfair",
+	"(Didn't see job fair poster)": "!jobfair",
+	"(Attempted Backtalk challenge with David)": "david_backtalk",
+	"(Didn't attempt Backtalk challenge with David)": "!david_backtalk",
+	"(Passed Backtalk challenge)": "David's Backtalk Challenge_won",
+	"(Failed Backtalk challenge)": "David's Backtalk Challenge_lost",
+	"(Said Rachel was more than a friend)": "something_more",
+	"(Passed Backtalk challenge with picnickers)": "Picnic Couple Backtalk Challenge_won",
+	"(Failed Backtalk challenge with picnickers)": "Picnic Couple Backtalk Challenge_lost",
+	"Play. (Chloe was suspended)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Said Rachel was a friend)": "!something_more",
+	"(Paid Frank)": "paid_frank",
+	"(Didn't pay Frank)": "!paid_frank",
+	"(Expelled)": {
+		"and": ["blame", "Well's Office Backtalk Challenge_won"]
+	},
+	"(Suspended)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Played tabletop game as Callamastia)": "tt_callamastia",
+	"(Played as Barb)": "tt_barb",
+	"(Played as Chloe/Didn't play)": {
+		"or": ["tt_chloe", "!tt"]
+	},
+	"(Rachel plays Prospera)": {
+		"and": ["blame", "Well's Office Backtalk Challenge_won"]
+	},
+	"(Victoria plays Prospera)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Signed petition as Chloe)": "petition_chloe",
+	"(Signed petition as Evanis Anne Assclown)": "petition_evanis",
+	"(Signed petition as Smokeweed D Bear)": "petition_smokeweed",
+	"(Signed petition with real name)": "petition_chloe",
+	"(Signed with fake name)": {
+		"or": ["petition_smokeweed", "petition_evanis"]
+	},
+	"(Didn't sign)": {
+		"and": ["!petition_smokeweed", "!petition_evanis", "!petition_chloe"]
+	},
+	"(Defended Nathan)": "step_in",
+	"(Didn't defend Nathan)": "!step_in",
+	"(Attacked skeevy guys at the mill)": "attacked_skeevy_guys",
+	"(Rachel will play Prospera)": {
+		"and": ["blame", "Well's Office Backtalk Challenge_won"]
+	},
+	"(Victoria will play Prospera)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Wore Raven Hair outfit)": {
+		"or": ["raven_outfit", "!set_outfit2"]
+	},
+	"(Wore Rorschach Skull outfit)": {
+		"or": ["rorschach_outfit", "!set_outfit2"]
+	},
+	"(Believed in true love)": "true_love",
+	"(Didn't believe)": "!true_love",
+	"(Wore Tarot Tower outfit)": {
+		"or": ["tarot_outfit", "!set_outfit2"]
+	},
+	"(Victoria was to play Prospera)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Chloe switched cups)": "switch_cups",
+	"(Victoria drank the tea)": "ask_victoria",
+	"(Chloe convinced Victoria to quit)": "victoria_backtalk_won",
+	"(Told Samantha to help Nathan)": "sam_help",
+	"(Told Samantha to give Nathan space/give him up)": {
+		"or": ["sam_space", "sam_giveup"]
+	},
+	"(Gave to Damon)": "damon_money",
+	"(Gave to Drew)": "drew_money",
+	"(Said Rachel was single to Steph)": "single",
+	"(Didn't say Rachel was single)": "!single",
+	"(Didn't kiss Rachel twice)": {
+		"or": ["!kiss", "!romance_high"]
+	},
+	"(Kissed Rachel twice/kissed with low romance)": {
+		"and": ["kiss", "!romance_med"]
+	},
+	"(Kissed Rachel)": "kiss",
+	"(Didn't kiss Rachel)": "!kiss",
+	"(Wore an outfit from Rachel)": {
+		"or": ["raven_outfit", "rorschach_outfit"]
+	},
+	"(Rachel was playing Prospera)": {
+		"and": ["blame", "Well's Office Backtalk Challenge_won"]
+	},
+	"(Victoria was playing Prospera)": {
+		"or": ["!blame", "Well's Office Backtalk Challenge_lost"]
+	},
+	"(Backtalked Wells)": "blame",
+	"(Didn't Backtalk)": "!blame",
+	"(Won Backtalk with Frank)": "Frank Backtalk Challenge_won",
+	"(Drew got hurt)": "!damon_money",
+	"(Mikey got hurt)": "damon_money",
+	"(Drew was hurt)": "!damon_money",
+	"(Mikey was hurt)": "damon_money",
+	"(Paid Damon)": "damon_money",
+	"(Didn't pay Damon)": "!damon_money",
+	"(Asked for Rachel to get a tattoo)": "tattoo",
+	"(Didn't ask for tattoo)": "!tattoo",
+	"(Asked for Rachel's bracelet)": "bracelet",
+	"(Didn't ask for bracelet)": "!bracelet",
+	"(Said \"I've got this\" and \"I've got that one too\" and won bouncer backtalk)": {
+		"and": ["got1", "got2", "Firewalk Bouncer Backtalk Challenge_won"]
+	},
+	"(Refused to empty pockets/agreed but bought weed)": {
+		"or": ["!comply", {
+			"and": ["comply", "bought_weed"]
+		}]
+	},
+	"(Gave money to Damon)": "damon_money",
+	"(Didn't give money to Damon)": "!damon_money",
+	"(Won backtalk challenge with Frank)": "Frank Backtalk Challenge_won",
+	"(Said Chloe gave Joyce money)": "joyce_money",
+	"(Chloe said she had the money)": "have_money",
+	"(Stole and kept money)": {
+		"and": ["stole_money", "!paid_frank"]
+	},
+	"Here's some cash.": "stole_money",
+	"(Wore Skull outfit)": {
+		"or": ["skull_outfit", "!set_outfit3"]
+	},
+	"(Wore skeleton butterfly shirt)": {
+		"or": ["butterfly_outfit", "!set_outfit1"]
+	},
+	"A KISS": "romance_5",
+	"Hold her hand.": "romance_4",
+	"(Wore different outfit)": "!raven_outfit",
+	"(Was nice to David)": "comply",
+	"(Was mean to David)": "!comply",
+	"(Agreed to empty pockets without the weed)": {
+		"and": ["comply", "!bought_weed"]
+	},
+	"(Agreed but bought weed)": {
+		"and": ["comply", "bought_weed"]
+	},
+	"(Drew was hurt)": "!damon_money",
+	"(Mikey was hurt)": "damon_money",
+	"(Gave Drew the money)": "drew_money",
+	"(Kept the money)": "!drew_money",
+	"(Defended Nathan/told Samantha to help him)": {
+		"and": ["step_in", "sam_help"]
+	},
+	"(Didn't defend Nathan/told Samantha to help him)": {
+		"and": ["!step_in", "sam_help"]
+	},
+	"(Told her to give him space/give him up)": {
+		"or": ["sam_space", "sam_giveup"]
+	},
+	"(Didn't receive text from James)": "!james_text",
+	"(Wore Fire Cone outfit)": "fire_cone_outfit",
+	"(Didn't wear Fire Cone outfit)": "!fire_cone_outfit",
+	"(Played as Callamastia)": "tt_callamastia",
+	"(Played as Chloe)": "tt_chloe",
+	"(Played tabletop game)": "tt",
+	"(Didn't play tabletop game)": "!tt",
+	"(Didn't wear Fire Cone outfit)": "!fire_cone_outfit",
+	"(Wore Cone of Fire outfit)": {
+		"or": ["fire_cone_outfit", "!set_outfit3"]
+	},
+	"(Won dragonkin backtalk)": "Dragonkin Intimidation Challenge_won",
+	"(Used Knee Slam and Brutal Punch)": {
+		"or": ["knee_slam", "brutal_punch"]
+	},
+	"(Didn't use those attacks)": {
+		"and": ["!knee_slam", "brutal_punch"]
+	},
+	"(Used Knee Slam at Training Ground)": "knee_slam",
+	"(Killed Duurgaron)": "kill_duurgaron",
+	"(Didn't kill Duurgaron)": "!kill_duurgaron",
+	"Here. (Kept money)": {
+		"and": ["!drew_money", "!damon_money"]
+	},
+	"(Told him about Rachel)": "told_elliot",
+	"(Kept it private)": "!told_elliot",
+	"(Performed badly in the play)": "no_lines",
+	"(Accepted Eliot's request)": "eliot_play",
+	"(Wanted to know)": "know",
+	"(Didn't want to know)": "!know",
+	"(Used the knife)": "knife",
+	"(Told about William)": "sera_william",
+	"(Told Rachel the truth)": "truth",
+	"(Protected Rachel from the truth)": "!truth",
+	"(Won Eliot backtalk)": "Elliot Backtalk Challenge_won",
+	"(Failed Eliot backtalk)": "Elliot Backtalk Challenge_lost",
+	"(Convinced Sera to meet Rachel)": "convince_sera",
+	"(Didn't convince)": "!convince_sera",
+	"(Didn't convince Sera)": "!convince_sera",
+	"Give her Rachel's bracelet.": "bracelet",
+	"(Got all lines correct)":"all_lines",
+	"(Got some lines correct)":"some_lines",
+	"(Got no lines correct)": "no_lines",
+	"(Chloe was nice to Joyce and David)": "accept_david",
+"(Chloe was mean to Joyce and David)": "!accept_david",
+"(\"Something more\" or Romance score at least 7)": {"or":["something_more", "romance_7"]},
+"(Told Samantha to give him up/give him space)": {"or": ["sam_help", "sam_space"]},
+"(\"A friendship\" and romance score less than 7)": {"and": ["!something_more", "!romance_7"]},
+"(Gave money to Drew)": "drew_money",
+"(Kept money/gave to Damon)": {"or": ["!drew_money", "damon_money"]},
+"(Romance score 6 or higher)": "romance_6",
+"(Told Samantha to give him help)": "sam_help",
+"(Low romance)": "romace_low",
+"(High romance)": "romance_high",
+"(Romance score less than 6)": "!romance_6",
+"(Completed all dialogue)": "wrong_order",
+"(Chloe doesn't convince Damon)": "!convince_damon",
+"(Didn't talk to him)": "wrong_order",
+"(If Chloe didn't smoke weed on campus)": "!bought_weed",
+"(Chloe accepted the wine)": "accept_wine",
+"(If Skip said \"high risk\" to Chloe)": "high_risk",
+"(Chloe won the Backtalk)": "Victoria Backtalk Challenge_won",
+"(Didn't win/challenge)":"!Frank Backtalk Challenge_won",
+"(Accused wrong person)": "wrong_order",
+"(Got evidence right)" :"evidence_right",
+"(Got evidence wrong)":"!evidence_right",
+"(Mystical graffiti)": {"or": ["mystical_graffiti", "!mystical_graffiti_set"]},
+"(Saw file in Amber House)": {"or":["amber_file", "!amber_file"]},
+"(Didn't see file)":{"or":["!amber_file", "!amber_file"]},
+"(Frightening graffiti)": {"or": ["!mystical_graffiti", "!mystical_graffiti_set"]},
+"(Didn't talk to Evan)":"wrong_order",
+"(Chloe enters through the back door)": "!Firewalk Bouncer Backtalk Challenge_won",
+"(Povel is alive)":"!povel_dead",
+"(Didn't go anywhere)":{"and":["!prison_camp", "!training_ground", "!warlord_tent"]},
+"(Didn't visit Prison Camp)":"!prison_camp",
+"(Went to caves)":"caves",
+"(Didn't visit Training Ground)": "!training_ground",
+"(Went to forest)":"forest",
+"(Chloe has potion/candy)": "potion",
+"(visited the Training Ground)":"training_ground",
+"(Chloe doesn't have it)": "!potion",
+"(Didn't keep/steal money)":{"or":["!stole_money", {"and":["!paid_frank","!joyce_money"]} ]},
+"(Joyce already corrected Wells)":{"and": ["!bullshit", "understanding" ]},
+"(Joyce didn't correct Wells)": {"or": ["bullshit", "!understanding" ]},
+"(Sabotaged Victoria homework)": "sabotage_hw",
+"(Rachel stole Victoria's role with drugs)": "!Victoria Backtalk Challenge_won",
+"(Didn't say both)": {"and": ["!got1", "!got2"]},
+"(Didn't play)": "!tt",
+"(Chloe got all her lines correct)": "all_lines",
+"(Got some/no lines correct)": "!all_lines",
+"(Nathan failed his lines)": {
+		"or": ["sam_space", "sam_giveup"]
+	},
+"(Truth: I wanted to be a pirate as a kid.)":"pirate_done",
+"(Truth: Country music makes me throw up.)": "country_done",
+"(Lie: I'm in a band.)": "band_done",
+"(Lie: I broke my hand punching someone.)": "punching_done",
+"(Truth: I love science.)":"science_done",
+"(Lie: I'm allergic to cats.)":"cat_allergy_done",
+"(Three lies)": "lie",
+"(Two truths, one lie)": "truth", 
+"(One truth, two lies)": "lie",
+"(Three truths)":"truth"
+
+
+
+	}
+	
+	
