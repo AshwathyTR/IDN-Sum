@@ -99,4 +99,6 @@ def gen_lis(wiki_name, ep_names, num_playthroughs, save_path, begin_pattern):
 
 
 lis_begin_pattern = r'This article is a \'\'\'script\'\'\' for \[\[(.*?)\]\].'
-gen_lis("life-is-strange",["Episode 1: Awake - Script","Episode 2: Brave New World - Script", "Episode 3: Hell Is Empty - Script"] , 1250, 'Before_The_Storm_1250_/sample_', lis_begin_pattern)
+num = sys.argv[1]
+output_path = sys.argv[2]
+gen_lis("life-is-strange",["Episode 1: Awake - Script","Episode 2: Brave New World - Script", "Episode 3: Hell Is Empty - Script"] , num, os.path.join(output_path,'sample_'), lis_begin_pattern)
