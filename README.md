@@ -20,8 +20,7 @@ The following game mechanics are supported:
 	5. Order of scenes in Wolf Among Us  
 	6. Optional interactions in Wolf Among Us where player can make multiple choices.  
 	
-## Limitations:
-
+## Limitations:  
 
 	1. Order is only accounted for major scenes in Wolf Among Us.  
 	2. Assumption is that you can chose only one option at a choice point except in Wolf Among Us where it is explicitly under a heading that says "Optional interactions".  
