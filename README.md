@@ -16,8 +16,6 @@ To prep data in format similar to CNN/DailyMail : python prep_data.py <path_to_g
 
 ## Support for game mechanics:  
 
-The readerbot simulates playthroughs but doesn't perfectly mimic the game.  
-
 The following game mechanics are supported:    
 	1. Choices and consequences in both games (ref set_triggers.json and use_triggers.json)  
 	2. Counters to keep track of variables like romance score in Before the Storm (ref counters.json)  
@@ -27,6 +25,8 @@ The following game mechanics are supported:
 	6. Optional interactions in Wolf Among Us where player can make multiple choices.  
 	
 ## Limitations:  
+
+The readerbot simulates playthroughs but doesn't perfectly mimic the game. 
 
 	1. Order is only accounted for major scenes in Wolf Among Us.  
 	2. Assumption is that you can chose only one option at a choice point except in Wolf Among Us where it is explicitly under a heading that says "Optional interactions".  
