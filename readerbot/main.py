@@ -40,6 +40,13 @@ def get_script(lis_url, page_id, begin_pattern):
     episode = beg.group(1)
     
     script = script[beg.end():]
+    if "Bigby sees marks on the window." in script:
+        script = script.replace("Bigby sees marks on the window.", "Bigby sees marks on the window..\n}}")
+
+    incom_block = "{{#tag:tabber|(Went here last)=\n\n'''Jersey:''' How you feeling today, Sheriff?<br />\n\nJersey punches Bigby in the back of the head.<br />\n\n'''Jersey:''' Still looking for whoever killed them hookers or are you done chasing your tail?<br />\n\nWoody grabs Jersey's neck and slams his face into a display case.<br />\n\n'''Woody:''' Where's my axe! Who'd you give it to!"
+    com_block = incom_block+'\n}}'
+    if incom_block in script:
+        script = script.replace(incom_block, com_block)
     script = script.replace('<span style="font-size:larger">\'\'\'','').replace('</span>','')
     rev_num = str(len(response['query']['pages'][str(page_id)]['revisions']) -1)
     return  rev_num, script
@@ -63,6 +70,7 @@ def write_files(path, sample, index):
         with codecs.open(path +str(index+1)+'/choices.txt','w', encoding = 'utf-8') as w:
             for choice in sample[1]:
                 w.write(choice + '\n')
+        
 
 def write_meta(path, data, script, parsed):
     with codecs.open(path+'meta_data.txt','w', encoding = 'utf-8') as w:
@@ -82,6 +90,7 @@ def get_maxvar_plays(count, parsed_script, save_path):
         choices_covered.append(sample[1])
         write_files(save_path, sample, index)
 
+
 def gen_lis(wiki_name, ep_names, num_playthroughs, save_path, begin_pattern):
     full_script=''
     for ep_name in ep_names:
@@ -89,16 +98,18 @@ def gen_lis(wiki_name, ep_names, num_playthroughs, save_path, begin_pattern):
         #print(lis_url)
         #print(page_id)
         rev, script = get_script(lis_url, page_id, begin_pattern)
-        full_script = full_script+ script
+        full_script = full_script+ "\n==EP END==\n" + script
     
     script = insert_context(full_script)
     full_parsed_script = get_parsed_script(script)
     get_maxvar_plays(num_playthroughs, full_parsed_script, save_path)
     write_meta(save_path, rev, full_script, full_parsed_script)
+    
    
 
 
-lis_begin_pattern = r'This article is a \'\'\'script\'\'\' for \[\[(.*?)\]\].'
-num = sys.argv[1]
-output_path = sys.argv[2]
-gen_lis("life-is-strange",["Episode 1: Awake - Script","Episode 2: Brave New World - Script", "Episode 3: Hell Is Empty - Script"] , num, os.path.join(output_path,'sample_'), lis_begin_pattern)
+
+wau_begin_pattern = r'The following is a \'\'\'transcript\'\'\' of \[\[(.*?)\]\]'
+
+gen_lis("fables",["Faith_(Episode)/Transcript", "Smoke_&_Mirrors/Transcript", "A_Crooked_Mile/Transcript","In_Sheep's_Clothing/Transcript", "Cry_Wolf/Transcript"] , 1250, 'Wolf_Among_Us_1250_/sample_', wau_begin_pattern)
+

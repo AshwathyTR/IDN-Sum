@@ -33,7 +33,7 @@ def clean_script(s):
     s = s.replace('{{','')
     s = s.replace('\'\'\'','')
     s = s.replace('\'\'','')
-    #s = s.replace("(thinking)","")
+    s = s.replace("(thinking)",'')
     s = s.replace('[[','')
     s = s.replace(']]','')
     s = s.replace('|','')
@@ -46,7 +46,8 @@ def clean_script(s):
     for line in s.split('\n\n'):
         trim = trim +'\n\n'+line if line.strip() != '' else trim
         
-    end = trim.split('END OF EPISODE 3: HELL IS EMPTY')
+    end = trim.split('I\'ll see you around... Wolf.')
+    trim = end[0] + 'I\'ll see you around... Wolf.'
     
     wscript=''
     for line in trim.split('\n'):
@@ -63,16 +64,11 @@ def clean_script(s):
 with open('set_triggers.json') as json_file:
     set_triggers = json.load(json_file)
 with open('use_triggers.json') as json_file:
-
     use_triggers = json.load(json_file)
-with open('backtalk_scores.json') as json_file:
-    backtalk_scores = json.load(json_file)
-with open('counters.json') as json_file:
-    counters = json.load(json_file)
 with open('bt_outcome_triggers.json') as json_file:
     bt_outcome_triggers = json.load(json_file)
-with open('bt_triggers.json') as json_file:
-    bt_triggers = json.load(json_file)
+with open('counters.json') as json_file:
+    counters = json.load(json_file)
 with open('scene_triggers.json') as json_file:
     scene_triggers = json.load(json_file)
 
@@ -101,70 +97,6 @@ def eval_bool(flags, condition):
                 result = result or eval_bool(flags, clause)
     return result
             
-
-def is_valid(flags, choice):
-    #print(choice)
-    #(flags)
-
-    result = True
-    if choice in use_triggers.keys():
-        condition = use_triggers[choice]
-        result =  eval_bool(flags, condition)  
-    elif choice[1:] in use_triggers.keys():
-        condition = use_triggers[choice[1:]]
-        result =  eval_bool(flags, condition) 
- 
-    return result
-   
-                            
-
-def calc_overlap(c1, c2):
-    
-    overlap = 0.0
-    for c in c2:
-        common = list(set(c1).intersection(c))
-        overlap =  overlap + float(len(common))/float(len(list(set(c1))))
-        
-    overlap = overlap/float(len(c2)) if len(c2) > 0 else 0.0
-    return overlap
-
-def get_min_choice(options, prev_choices, choices_covered):
-    min_ =2.0
-    choice = None
-    for option in options:
-        overlap = calc_overlap(prev_choices + [option], choices_covered)
-        if overlap<min_:
-            min_ = overlap
-            choice = option
-    return choice
-        
-def end_backtalk(prev_choice, state):
-    if state['backtalk_score_neg'] + float(backtalk_scores[prev_choice]) < -0.9:
-
-        state['is_backtalk'] = False
-        state['backtalk_score_neg'] = 0.0
-        state['backtalk_score_pos'] = 0.0
-        state['flags'].append(state['bt_context']+'_lost')
-        state['bt_context'] = None
-        end = True
-    elif state['backtalk_score_pos'] + float(backtalk_scores[prev_choice]) > 0.9:
-        state['is_backtalk'] = False
-        state['backtalk_score_neg'] = 0.0
-        state['backtalk_score_pos'] = 0.0
-        state['flags'].append(state['bt_context']+'_won')
-        state['bt_context'] = None
-        end = True
-    else:
-        end = False
-    return end, state
-
-def update_backtalk(prev_choice, state):
-    if float(backtalk_scores[prev_choice]) >0.0:
-        state['backtalk_score_pos'] = state['backtalk_score_pos'] + float(backtalk_scores[prev_choice])
-    else:
-        state['backtalk_score_neg'] = state['backtalk_score_neg'] + float(backtalk_scores[prev_choice])
-    return state
-  
 def eval_counter_bool(count, condition):
     result = False
     if type(condition) is str:
@@ -193,9 +125,47 @@ def get_flags(count, flag_thresholds):
             flags.append(flag)
     return flags
     
+def is_valid(flags, choice):
+    #print(choice)
+    #(flags)
 
-                         
-def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices_covered):      
+    result = True
+    if choice in use_triggers.keys():
+        condition = use_triggers[choice]
+        result =  eval_bool(flags, condition)  
+    elif choice[1:] in use_triggers.keys():
+        condition = use_triggers[choice[1:]]
+        result =  eval_bool(flags, condition) 
+ 
+    return result
+   
+                            
+
+def calc_overlap(c1, c2):
+    start = time.time()
+    overlap = 0.0
+    for c in c2:
+        common = list(set(c1).intersection(c))
+        overlap =  overlap + float(len(common))/float(len(list(set(c1))))
+        
+    overlap = overlap/float(len(c2)) if len(c2) > 0 else 0.0
+    end = time.time()
+    #print("Runtime:"+ str(end - start))
+    #print("size:" + str(len(c2)))
+    return overlap
+
+def get_min_choice(options, prev_choices, choices_covered):
+    min_ =2.0
+    choice = None
+    for option in options:
+        overlap = calc_overlap(prev_choices + [option], choices_covered)
+        if overlap<min_:
+            min_ = overlap
+            choice = option
+    return choice
+        
+
+def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices_covered, opt_flag=False):      
     play = ''
     choices = []
     
@@ -203,59 +173,25 @@ def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices
     for counter in counters.keys():
        
 
-       if prev_choices[-1] in counters[counter]["triggers"].keys():
-           state[counter] = state[counter] + float(counters[counter]["triggers"][prev_choices[-1]])
-                    
-           flags = get_flags(state[counter], counters[counter]['flag_thresholds'])
-           for flag in counters[counter]['flag_thresholds'].keys():
-               if flag in flags and flag not in state['flags']:
-                   state['flags'].append(flag)
-               elif flag not in flags and flag in state['flags']:
-                   state['flags'].remove(flag) 
-
-
-    if prev_choices[-1] in bt_triggers.keys():
-                                state['bt_context'] = bt_triggers[prev_choices[-1]]
-                                state['is_backtalk'] = True
-                                state['backtalk_score_neg'] = 0.0
-                                state['backtalk_score_pos'] = 0.0 
-                                
-   
+        if prev_choices[-1] in counters[counter]["triggers"].keys():
+               state[counter] = state[counter] + float(counters[counter]["triggers"][prev_choices[-1]])
+                        
+               flags = get_flags(state[counter], counters[counter]['flag_thresholds'])
+               for flag in counters[counter]['flag_thresholds'].keys():
+                   if flag in flags and flag not in state['flags']:
+                       state['flags'].append(flag)
+                   elif flag not in flags and flag in state['flags']:
+                       state['flags'].remove(flag) 
                     
     if prev_choices[-1] in set_triggers.keys():
                             for flag in set_triggers[prev_choices[-1]]:
-                                #print(prev_choices[-1])
                                 state['flags'].append(flag)
 
     for section in content:
 
                                 
                 if type(section) is str:
-                    if state['is_backtalk']:
-                        if prev_choices[-1] in backtalk_scores.keys():
-                            end, state = end_backtalk(prev_choices[-1], state)
-                            if end:
-                                   play = play+section if type(section) is str else play
-                                   return play, choices, state
-                                
-                            else:
-                                
-                                #print(state)
-                                #print(prev_choices[-1])
-                                state = update_backtalk(prev_choices[-1], state)
-                                #print(state)               
-                
-                                
-                if type(section) is str:
-                        play = play +section
-                        bt_pattern = r'\[\[Backtalk#(.*?)\|(.*?)\]\]'
-                        bt_match = re.search(bt_pattern, section)
-                        if bt_match:
-                                
-                                state['bt_context'] = bt_match.group(2)
-                                state['is_backtalk'] = True
-                                state['backtalk_score_neg'] = 0.0
-                                state['backtalk_score_pos'] = 0.0                      
+                        play = play + section                    
                         
                 else:
                     
@@ -279,13 +215,17 @@ def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices
 
                     if skip:
                         continue
-                    if choice in backtalk_scores.keys() and not state['is_backtalk']:
-                        continue
                     
+                    if choice == 'Optional Interactions':
+                        opt_flag = True
+                        
+                    num_choices = random.randint(0,len(options)) if opt_flag else 1
                     choices.append(choice)
-                    playthrough, choices_taken, state = get_maxvar_playthrough(section[choice], state, choices, preset_choices, choices_covered)
-                    play = play + '\n\n'+playthrough
-                    choices = choices + choices_taken
+                    
+                    for n in range(0,num_choices):
+                        playthrough, choices_taken, state = get_maxvar_playthrough(section[choice], state, choices, preset_choices, choices_covered, opt_flag)
+                        play = play + '\n\n'+playthrough
+                        choices = choices + choices_taken
 
     return play, choices, state
 
@@ -296,31 +236,34 @@ def get_maxvar_play(parsed_script, choices_covered, preset_choices=[]):
     play = ''
     choices = ['START']
     state = {}
-    state['is_backtalk'] = False
-    state['backtalk_score_pos'] = 0.0
-    state['backtalk_score_neg'] = 0.0
-    state['flags'] = ['romance_low']
     for counter in counters.keys():
         state[counter] = 0.0
-
+    state['flags'] = []
+    working_script = parsed_script[:]
+    while working_script:
+        index = 0
+        scene = working_script[index]
+        if scene['name'] == '==EP END==':
+            choices = choices + ["end ep"]
+        else:
+            if scene['name'] in scene_triggers.keys():
+                while not eval_bool(state['flags'], scene_triggers[scene['name']]):
+                        index= index+1
+                        scene = working_script[index]
     
-    for scene in parsed_script:
-        #print(scene['name'])
-        if "principal wells' office" in scene['name'].lower():
-            counters['intimacy_score']['flag_thresholds']['romance_high'] = ">5"
-            counters['intimacy_score']['flag_thresholds']['romance_low'] = "<6"
-        if scene['name'] in scene_triggers.keys():
-            if not eval_bool(state['flags'], scene_triggers[scene['name']]):
-                continue
-        play = play+':SC:'+'\n'
-        playthrough, choices_taken, state = get_maxvar_playthrough(scene['content'], state, choices ,preset_choices, choices_covered)
-        play = play + playthrough
-        choices = choices + choices_taken
-        #print(scene['name'])
-    play = play+'\n:SC:'
+            play = play+'\n'
+            #print(scene['name'])
+            playthrough, choices_taken, state = get_maxvar_playthrough(scene['content'], state, choices ,preset_choices, choices_covered)
+            play = play + "\n:SC:\n"+playthrough
+            choices = choices + choices_taken
+        working_script.remove(scene)
+    play = play+'\n'
                     
     play = clean_script(play)
     return play, choices, state
 
 
 
+ 
+
+#order of examining not recorded - lamp first, latch forst, etc
