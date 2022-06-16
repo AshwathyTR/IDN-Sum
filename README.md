@@ -16,7 +16,8 @@ To prep data in format similar to CNN/DailyMail : python prep_data.py <path_to_g
 
 ## Support for game mechanics:  
 
-The following game mechanics are supported:    
+The following game mechanics are supported: 
+   
 	1. Choices and consequences in both games (ref set_triggers.json and use_triggers.json)  
 	2. Counters to keep track of variables like romance score in Before the Storm (ref counters.json)  
 	3. Backtalk in Before the Storm ( ref backtalk_scores.json and bt_triggers.json)  
