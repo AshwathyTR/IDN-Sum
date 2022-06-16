@@ -5,9 +5,10 @@ Created on Fri Aug 27 16:43:03 2021
 @author: atr1n17
 """
 import os
+import sys
 
-data_dir = r"C:\Users\atr1n17\Documents\experiments\bts_readerbot\Before_The_Storm_1250_"
-#wiki_file = os.path.join(data_dir, "wikiplot.txt")
+data_dir = sys.argv[1]
+
 for fname in os.listdir(data_dir):
             if '.txt' in fname or '.pkl' in fname:
                 continue
@@ -53,7 +54,6 @@ for fname in os.listdir(data_dir):
                         
 from shutil import copyfile
 import os
-data_dir = r"C:\Users\atr1n17\Documents\experiments\bts_readerbot\Before_The_Storm_1250_"
 eps = ['1','2','3']
 
 for ep in eps:

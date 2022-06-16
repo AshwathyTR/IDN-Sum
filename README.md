@@ -8,7 +8,7 @@ Use bts_readerbot branch to generate playthroughs of Before the Storm and wau_re
 ## Usage:  
 To run the readerbot : python main.py <number_of_playthroughs> <output_folder>  
 
-To split up episodes : python split_episodes.py  
+To split up episodes : python split_episodes.py  <path_to_generated_playthroughs>
 
 To clean data and add [EX] and S0 markers : python clean_script.py <input_path> <number_of_playthroughs>  
 
