@@ -1,7 +1,7 @@
 # IDN-Sum
 Dataset for Interactive Narrative Summarisation
 
-This repository contains code used to generate data in IDN-Sum. 
+This repository contains code used to generate data in IDN-Sum.  
 
 Use bts_readerbot branch to generate playthroughs of Before the Storm and wau_readerbot branch to generate playthroughs for Wolf Among Us.
 
@@ -21,6 +21,7 @@ To clean data and add [EX] and S0 markers :
 To prep data in format similar to CNN/DailyMail :  
 
     python prep_data.py <path_to_generated_playthroughs> <path_to_abstractive_summary> <file_name>
+
 
 ## Support for game mechanics:  
 
@@ -45,4 +46,14 @@ The readerbot simulates playthroughs but doesn't perfectly mimic the game.
 	6. Order is accounted for only in case of major consequences (going to which scene first in Wolf Among Us), not for optional interactions.  
 	7. Sometimes "examine x" is in the text and not as an option, but there are use triggers before/after this which will always be set to examined or didn't examine depending on where in the script the text is.  
 
+
+Annotations for extractive summarisation was generated using conversion script from TransformerSum [ref]. 
+Alternatively, data in all formats may be downloaded from <link to Zenodo>.
+
+## Models:
+Models were trained using scripts from TransformerSum[ref] and Summarunner[ref]. Summarunner-long was trained using small modifications to the original Summarunner script, allowing it to accept a maximum document length. A fork of Summarunner with this modification can be found at <link to SRL github page>.
+Models can be downloaded from <link to Zenodo>.
+
+## Results:
+Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at <link to Zenodo>. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from <textrank link>) baselines for reference:
 
