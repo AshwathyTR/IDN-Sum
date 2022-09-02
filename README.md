@@ -23,11 +23,7 @@ To prep data in format similar to CNN/DailyMail :
     python prep_data.py <path_to_generated_playthroughs> <path_to_abstractive_summary> <file_name>
 
 Annotations for extractive summarisation was generated using conversion script from TransformerSum [ref]. 
-Alternatively, data may be downloaded from <link to Zenodo>.
-
-## Generating extractive summaries automatically
-
-Silver standard extractive summaries are created through automatic alignment using method described in Summarunner[ref]. The "create_extractive" script from Transformersum[ref] was used for this. Generated annotated data can be downloaded from [zenodo link].
+Alternatively, data in all formats may be downloaded from <link to Zenodo>.
 
 ## Support for game mechanics:  
 
