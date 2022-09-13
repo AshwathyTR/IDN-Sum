@@ -25,6 +25,10 @@ To prep data in format similar to CNN/DailyMail :
 Annotations for extractive summarisation was generated using conversion script from TransformerSum [ref]. 
 Alternatively, data in all formats may be downloaded from <link to Zenodo>.
 
+## Implementation
+
+To ensure that the ReaderBot generates a wide variety of playthroughs through the game, it keeps track of all the choice combinations it has generated previously. In each step, it makes the choice that creates a choice combination that has minimum overlap with the combinations generated so far. The choices taken for each playthrough are provided along with the simulated playthrough. Note that the ReaderBot simulates playthroughs through the game capturing major aspects of the game, but it does not perfectly mimic it (for example, not all game mechanics in the game are reflected in the ReaderBot).
+
 ## Support for game mechanics:  
 
 The following game mechanics are supported: 
