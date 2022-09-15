@@ -22,8 +22,8 @@ To prep data in format similar to CNN/DailyMail :
 
     python prep_data.py <path_to_generated_playthroughs> <path_to_abstractive_summary> <file_name>
 
-Annotations for extractive summarisation was generated using conversion script from TransformerSum [ref]. 
-Alternatively, data in all formats may be downloaded from <link to Zenodo>.
+Annotations for extractive summarisation was generated using conversion script from TransformerSum [1]. 
+Alternatively, data in all formats may be downloaded from [link to be added].
 
 ## Implementation
 
@@ -54,9 +54,13 @@ The readerbot simulates playthroughs but doesn't perfectly mimic the game.
 
 
 ## Models:
-Models were trained using scripts from TransformerSum[ref] and Summarunner[ref]. Summarunner-long was trained using small modifications to the original Summarunner script, allowing it to accept a maximum document length. A fork of Summarunner with this modification can be found at <link to SRL github page>.
-Models can be downloaded from <link to Zenodo>.
+Models were trained using scripts from TransformerSum[1] and Summarunner[2]. Summarunner-long was trained using small modifications to the original Summarunner script, allowing it to accept a maximum document length. A fork of Summarunner with this modification can be found at <link to be added>.
+Models can be downloaded from [link to be added].
 
 ## Results:
-Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at <link to Zenodo>. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from <textrank link>) baselines for reference:
+Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at [link to be added]. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from <textrank link>) baselines for reference:
+[Table with results to be added]
 
+##References:
+[1]https://github.com/HHousen/TransformerSum
+[2]https://github.com/hpzhao/SummaRuNNer
