@@ -65,3 +65,6 @@ Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE sc
 [1]https://github.com/HHousen/TransformerSum <br />
 [2]https://github.com/hpzhao/SummaRuNNer <br />
 [3]https://radimrehurek.com/gensim_3.8.3/auto_examples/tutorials/run_summarization.html
+
+## Contact:
+If you have any questions, please email atr1n17@soton.ac.uk
