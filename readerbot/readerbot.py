@@ -5,8 +5,6 @@ Created on Thu Mar 11 18:09:23 2021
 @author: atr1n17
 """
 import json
-import random 
-import time
 import re
     
 def clean_script(s):
@@ -46,7 +44,7 @@ def clean_script(s):
     for line in s.split('\n\n'):
         trim = trim +'\n\n'+line if line.strip() != '' else trim
         
-    end = trim.split('END OF EPISODE 3: HELL IS EMPTY')
+    #end = trim.split('END OF EPISODE 3: HELL IS EMPTY')
     
     wscript=''
     for line in trim.split('\n'):
@@ -261,9 +259,9 @@ def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices
                     
                     options = list(section.keys())
 
-                    scores = {}
+                    #scores = {}
                     choice = get_min_choice(options, prev_choices, choices_covered)
-                    index = options.index(choice)
+                    #index = options.index(choice)
 
 
                     count=0
@@ -275,7 +273,7 @@ def get_maxvar_playthrough(content, state, prev_choices, preset_choices, choices
                         count=count+1
                         options.remove(choice)
                         choice = get_min_choice(options, prev_choices, choices_covered)
-                        index = options.index(choice)
+                        #index = options.index(choice)
 
                     if skip:
                         continue
