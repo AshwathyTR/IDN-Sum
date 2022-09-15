@@ -58,9 +58,10 @@ Models were trained using scripts from TransformerSum[1] and Summarunner[2]. Sum
 Models can be downloaded from [link to be added].
 
 ## Results:
-Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at [link to be added]. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from <textrank link>) baselines for reference:
+Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at [link to be added]. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from gensim[3]) baselines for reference:
 [Table with results to be added]
 
-##References:
+## References:
 [1]https://github.com/HHousen/TransformerSum
 [2]https://github.com/hpzhao/SummaRuNNer
+[3]https://radimrehurek.com/gensim_3.8.3/auto_examples/tutorials/run_summarization.html
