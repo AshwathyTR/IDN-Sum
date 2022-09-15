@@ -288,6 +288,15 @@ def clean(s):
     
 
 def clean_tree(tree):
+    '''
+    Parameters
+    ----------
+     tree : list of lists representing the tree that needs to be cleaned 
+    Returns
+    -------
+    c_tree : list of lists representing clean tree
+
+    '''
     c_tree=[]
     for node in tree:
         if type(node) is list:
