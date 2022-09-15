@@ -6,10 +6,15 @@ Created on Tue Jul 27 13:19:17 2021
 """
 import sys
 import os
-sys.path = [os.getcwd()] + sys.path
 from parse_html import get_parsed_script
 from readerbot import get_maxvar_play
 import json
+import codecs
+import requests
+import re
+import wikia
+import pickle
+sys.path = [os.getcwd()] + sys.path
 
 with open('bt_outcome_triggers.json') as json_file:
     bt_outcome_triggers = json.load(json_file)
@@ -37,7 +42,7 @@ def get_script(lis_url, page_id, begin_pattern):
     #print(response['query']['pages'].keys())
     script = response['query']['pages'][str(page_id)]['revisions'][-1]['*']
     beg = re.search(begin_pattern, script)
-    episode = beg.group(1)
+    #episode = beg.group(1)
     
     script = script[beg.end():]
     script = script.replace('<span style="font-size:larger">\'\'\'','').replace('</span>','')
@@ -49,12 +54,6 @@ def get_request(wiki_name,page_name):
     page_id = vars(wikia.page(wiki_name, page_name))['pageid']
     return url, page_id
      
-import codecs
-import requests
-import re
-import os
-import wikia
-import pickle
 
 def write_files(path, sample, index):
         os.makedirs(path + str(index+1))
@@ -74,7 +73,7 @@ def write_meta(path, data, script, parsed):
 
 
 def get_maxvar_plays(count, parsed_script, save_path):
-    samples = []
+    #samples = []
     choices_covered = []
     for index in range(0,count,1):
         print(index)
