@@ -23,7 +23,7 @@ To prep data in format similar to CNN/DailyMail :
     python prep_data.py <path_to_generated_playthroughs> <path_to_abstractive_summary> <file_name>
 
 Annotations for extractive summarisation was generated using conversion script from TransformerSum [1]. 
-Alternatively, data in all formats may be downloaded from [link to be added].
+Alternatively, data in all formats may be downloaded from https://zenodo.org/record/7083149.
 
 ## Implementation
 
