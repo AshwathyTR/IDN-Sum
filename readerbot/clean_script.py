@@ -26,6 +26,8 @@ def clean_script(script):
                     new_script = new_script + ' '+ line.strip()
         prev_line = line
     return new_script
+
+
 import codecs
 path = sys.argv[1]
 num = sys.argv[2]
