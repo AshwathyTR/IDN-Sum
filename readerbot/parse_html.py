@@ -254,30 +254,17 @@ def get_parse_tree(dev):
             tree.append(unpack(section))
     return tree
 
-def clean(s):
-    '''
-    Parameters
-    ----------
-     s : string 
-    text from which html tags need to be removed
-    Returns
-    -------
-    s : string
-        string after unnecessary html tags are removed and useful ones are replaced with more readable tags
 
-    '''
-    h_pattern = r'(.*)?=<h5 style="display:none">(.*)</h5>'
+
+
+
+
+def clean(s):
+    h_pattern = r'(.*)=\n\n(.*)'
     while( re.search(h_pattern,s) is not None):
         heading = re.search(h_pattern,s)
-        s = s.replace(heading.group(0),'#HEADING#'+heading.group(1)+'#HEADING#')
-    h_pattern = r'<tabber>(.*?)=<blockquote>'
-    while( re.search(h_pattern,s) is not None):
-        heading = re.search(h_pattern,s)
-        s = s.replace(heading.group(0),'#HEADING#'+heading.group(1)+'#HEADING#')
-    h_pattern = r'#tag:tabber|(.*?)=<blockquote>'
-    while( re.search(h_pattern,s) is not None):
-        heading = re.search(h_pattern,s)
-        s = s.replace(heading.group(0),'#HEADING#'+heading.group(1)+'#HEADING#')
+        new_heading = heading.group(1).replace('<tabber>','') if '<tabber>' in heading.group(1) else heading.group(1)
+        s = s.replace(heading.group(1)+'=\n\n','#HEADING#'+new_heading+'#HEADING#')
     s = s.replace('</blockquote>','')
     s = s.replace('<tabber>','')
     s = s.replace('</tabber>','')
@@ -318,7 +305,7 @@ def get_headings(tree):
         elif '#HEADING#' in node:
             match =  re.search(pattern, node)
             current_heading = match.group(1)
-            current_node = [node.replace( match.group(0),"CHOICE: "+ match.group(1))]
+            current_node = [node.replace( match.group(0),"CHOICE: "+match.group(1))]
         else:
             current_node.append(node) 
             
@@ -333,17 +320,19 @@ def get_headings(tree):
     return parsed_nodes
     
 
+    
+
 def get_parsed_script(script):    
     parsed_script=[]
     
-    sections = re.split(r'(==.*==|<u>.*</u>)',script)
+    sections = re.split(r'(==.*==)',script)
     while('==' not in sections[0]):
         sections = sections[1:]
         
     scenes=[]
     scene_texts=[]
     for section in sections:
-        if '==' in section or '<u>' in section:
+        if re.match(r'==.*==',section):
             scenes.append(section)
         else:
             scene_texts.append(section)
@@ -362,8 +351,8 @@ def get_parsed_script(script):
                 parsed_scene.append(section)
         entry ={}
         entry['name']=scene
+        #print(scene)
         entry['content']=parsed_scene
         parsed_script.append(entry)
-    return parsed_script  
-
+    return parsed_script
     

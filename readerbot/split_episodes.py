@@ -1,60 +1,46 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug 27 16:43:03 2021
+Created on Fri Aug 27 17:36:21 2021
 
 @author: atr1n17
 """
+
 import os
-import sys
+import codecs
 
-data_dir = sys.argv[1]
-
+data_dir = r"C:\Users\atr1n17\Documents\experiments\wau_readerbot\Wolf_Among_Us_1250_"
+delim =   "__FORCETOC__"
+rem = ["Video Game Transcripts", "Category:Episodes", "Telltale Games' The Wolf Among Us."]
+c_delim = "end ep"
 for fname in os.listdir(data_dir):
             if '.txt' in fname or '.pkl' in fname:
                 continue
             script = os.path.join(data_dir, fname, "script.txt")
-            with open(script,'r') as f:
+            with codecs.open(script,'r', encoding='utf-8') as f:
                 script_file = f.read()
-            
-            s1 = script_file.split("END OF EPISODE 1: AWAKE")
-            #print(s1)
-            script1 = s1[0]
-            s2 = s1[1].split("END OF EPISODE 2: BRAVE NEW WORLD")
-            script2 = s2[0]
-            script3 = s2[1]
-            with open(os.path.join(data_dir, fname, "script_1.txt"),'w') as f:
-                f.write(script1)
-            with open(os.path.join(data_dir, fname, "script_2.txt"),'w') as f:
-                f.write(script2)
-            with open(os.path.join(data_dir, fname, "script_3.txt"),'w') as f:
-                f.write(script3)
-            e2_choices = ["Don't screw up?\n", "Is that rhetorical?\n", "Say nothing.\n"]
-            e3_choices = ["I'm here.\n", "You can handle this.\n"]            
-            choices_file = os.path.join(data_dir, fname, "choices.txt")
-            with open(choices_file, 'r') as f:
-                choices = f.readlines()
-            ep = 1
-            ep_choices = {}
-            ep_choices['1'] = []
-            ep_choices['2'] = []
-            ep_choices['3'] = []
-            for choice in choices:
-                #print(choice)
-                if choice in e2_choices:
-                    ep = 2
-                    #print(choice)
-                if choice in e3_choices:
-                    ep = 3
-                ep_choices[str(ep)].append(choice)
-            for e in ep_choices.keys():
-                with open(os.path.join(data_dir, fname, "choice_"+ str(e)+".txt"),'w') as f:
-                    for choice in ep_choices[e]:
-                        f.write(choice)
+            for r in rem:
+                script = script.replace(r, '')
+            s = script_file.split(delim)
+            for n in range(1,6):
+                with codecs.open(os.path.join(data_dir, fname, "script_"+str(n)+".txt"),'w', encoding='utf-8') as f:
+                    f.write(s[n-1])
+                    
+                    
+            choice_file = os.path.join(data_dir, fname, "choices.txt")
+            with codecs.open(choice_file, 'r', encoding='utf-8') as f:
+                choices = f.read()
+                
+            s = choices.split(c_delim)
+
+            for n in range(1,6):
+                with open(os.path.join(data_dir, fname, "choices_"+str(n)+".txt"),'w') as f:
+                    f.write(s[n])
                         
                         
 from shutil import copyfile
 import os
-eps = ['1','2','3']
+data_dir = r"C:\Users\atr1n17\Documents\experiments\wau_readerbot\Wolf_Among_Us_1250_"
+eps = ['1','2','3','4', '5']
 
 for ep in eps:
     os.makedirs(data_dir+ep)
@@ -62,7 +48,7 @@ for ep in eps:
         if '.txt' in fname or '.pkl' in fname:
             continue
         os.mkdir(os.path.join(data_dir+ep, fname))
-        copyfile(os.path.join(data_dir, fname, 'choice_'+ep+'.txt'), os.path.join(data_dir+ep, fname, 'choices.txt'))
+        copyfile(os.path.join(data_dir, fname, 'choices_'+ep+'.txt'), os.path.join(data_dir+ep, fname, 'choices.txt'))
         copyfile(os.path.join(data_dir, fname, 'script_'+ep+'.txt'), os.path.join(data_dir+ep, fname, 'script.txt'))
     
 

@@ -1,56 +1,53 @@
 {
-	"intimacy_score": {
+	"money": {
 
 		"triggers": {
-			"Bring it to her.": "1",
-			"Flirt.": "1",
-			"Be my first mate?": "1",
-			"Share with Rachel.": "1",
-			"SOMETHING MORE": "1",
-			"Hold her hand.": "3",
-			"Come with me.": "1",
-			"I do.": "2",
-			"Say something sweet.": "1"
+			"[give her some money]": "-1",
+			"[Pay for the drink]": "-1",
+			"[Pocket the money]": "3",
+			"[Take the money]": "3",
+			"[Pay her]": "-10",
+			"[Offer what you have]": "-10",
+			"[Give her all your money]": "-10",
+			"[Confiscate money]": "50",
+			"[Take money]1": "50",
+            "[Take_money]2":"50",
+            "[Take_money]3":"50"
 		},
 
 		"flag_thresholds": {
-			"romance_high": ">1",
-			"romance_low": "<2",
-			"romance_6": ">5",
-			"romance_7": ">6",
-			"romance_5": ">4",
-			"romance_4": ">3"
+			"money": ">0",
+			"!money": "<0"
 		}
 	},
 
-	"convince_sera": {
+	"violence": {
 		"triggers": {
-			"Everybody's broken.": "1",
-			"I lost my father.": "1",
-			"Rachel needs you.": "1",
-			"I thought my dad was perfect.": "1",
-			"Don't you want to see her?": "1",
-			"Give her Rachel's bracelet.": "3"
+			"hit_toad1": "1",
+			"hit_toad2": "1",
+			"punch_dee": "1",
+			"[Smash Dee]": "1",
+			"[Burn Dee]": "1",
+			"Punch Woodsman": "1",
+			"[tear off his arm]": "3",
+			"[Hurt Georgie]" : "1",
+			"[Smash Woodsman]" :"1",
+			"[Burn Woodsman]": "1",
+			"[Punch him]4": "1",
+			"[Punch him]1": "1",
+			"[Punch him]2": "1",
+			"[Punch him]3": "1",
+			"[Punch him]5": "1",
+			"[Break his nose]": "1",
+			"[Kill Dum]": "3",
+			"[Squeeze]" :"1",
+			"[Slam him]" : "1",
+			"[Deck him]": "1",
+			"[Kill Him Now]": "3",
+			 "Kill him": "3"
 		},
 		"flag_thresholds": {
-			"convince_sera": ">4"
-		}
-	},
-
-	"play_lines": {
-
-		"triggers": {
-			"I boarded the King's ship...": "1",
-			"\"Hell is empty!\"": "1",
-			"In troops.": "1",
-			"More toil?": "1",
-			"Liberty.": "1"
-		},
-
-		"flag_thresholds": {
-			"all_lines": ">4",
-			"some_lines": ">0",
-			"no_lines": "<1"
+			"violence_high": ">15"
 		}
 	}
 }
