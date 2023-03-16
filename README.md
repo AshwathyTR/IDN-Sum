@@ -1,7 +1,7 @@
 # IDN-Sum
 Dataset for Interactive Narrative Summarisation
 
-This repository contains code used to generate data in IDN-Sum.  
+This repository contains code used to generate data in IDN-Sum[4].  
 
 Use bts_readerbot branch to generate playthroughs of Before the Storm and wau_readerbot branch to generate playthroughs for Wolf Among Us.
 
@@ -65,6 +65,25 @@ Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE sc
 [1]https://github.com/HHousen/TransformerSum <br />
 [2]https://github.com/hpzhao/SummaRuNNer <br />
 [3]https://radimrehurek.com/gensim_3.8.3/auto_examples/tutorials/run_summarization.html
+[4]Revi, Ashwathy T., Stuart E. Middleton, and David E. Millard. "IDN-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation." Proceedings of The Workshop on Automatic Summarization for Creative Writing. 2022.
 
 ## Contact:
 If you have any questions, please email atr1n17@soton.ac.uk
+
+## Citation:
+Cite the following paper if using this dataset:
+@inproceedings{revi-etal-2022-idn,
+    title = "{IDN}-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation",
+    author = "Revi, Ashwathy T.  and
+      Middleton, Stuart E.  and
+      Millard, David E.",
+    booktitle = "Proceedings of The Workshop on Automatic Summarization for Creative Writing",
+    month = oct,
+    year = "2022",
+    address = "Gyeongju, Republic of Korea",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.creativesumm-1.1",
+    pages = "1--12",
+    abstract = "Summarizing Interactive Digital Narratives (IDN) presents some unique challenges to existing text summarization models especially around capturing interactive elements in addition to important plot points. In this paper, we describe the first IDN dataset (IDN-Sum) designed specifically for training and testing IDN text summarization algorithms. Our dataset is generated using random playthroughs of 8 IDN episodes, taken from 2 different IDN games, and consists of 10,000 documents. Playthrough documents are annotated through automatic alignment with fan-sourced summaries using a commonly used alignment algorithm. We also report and discuss results from experiments applying common baseline extractive text summarization algorithms to this dataset. Qualitative analysis of the results reveals shortcomings in common annotation approaches and evaluation methods when applied to narrative and interactive narrative datasets. The dataset is released as open source for future researchers to train and test their own approaches for IDN text.",
+}
+
