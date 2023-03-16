@@ -349,7 +349,7 @@ def get_playthrough_from_node(content, state, prev_choices, choices_covered):
             choices.append(choice)
             
             # recursively call the function to generate the playthrough for the chosen option
-            playthrough, choices_taken, state = get_playthrough_from_node(section[choice], state, choices, preset_choices, choices_covered)
+            playthrough, choices_taken, state = get_playthrough_from_node(section[choice], state, choices, choices_covered)
             
             play = play + '\n\n'+playthrough
             choices = choices + choices_taken

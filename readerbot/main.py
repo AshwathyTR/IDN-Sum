@@ -95,9 +95,14 @@ def gen_lis(wiki_name, ep_names, num_playthroughs, save_path, begin_pattern):
     get_maxvar_plays(num_playthroughs, full_parsed_script, save_path)
     write_meta(save_path, rev, full_script, full_parsed_script)
    
+def load_lis(load_path, num_playthroughs, save_path, begin_pattern):
+    with open(load_path,'rb') as w:
+         full_parsed_script = pickle.load(w)
+    get_maxvar_plays(num_playthroughs, full_parsed_script, save_path)
 
 
 lis_begin_pattern = r'This article is a \'\'\'script\'\'\' for \[\[(.*?)\]\].'
-num = sys.argv[1]
+num = int(sys.argv[1])
 output_path = sys.argv[2]
-gen_lis("life-is-strange",["Episode 1: Awake - Script","Episode 2: Brave New World - Script", "Episode 3: Hell Is Empty - Script"] , num, os.path.join(output_path,'sample_'), lis_begin_pattern)
+load_path = '../data/sample_parsed_script.pkl'
+load_lis(load_path, num, os.path.join(output_path,'sample_'), lis_begin_pattern)
