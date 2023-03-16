@@ -1,7 +1,7 @@
 # IDN-Sum
 Dataset for Interactive Narrative Summarisation
 
-This repository contains code used to generate data in paper IDN-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation[4].  https://aclanthology.org/2022.creativesumm-1.1/
+This repository contains code used to generate data in paper [IDN-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation](https://aclanthology.org/2022.creativesumm-1.1/)[4].  
 
 Use bts_readerbot branch to generate playthroughs of Before the Storm and wau_readerbot branch to generate playthroughs for Wolf Among Us.
 
