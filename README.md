@@ -1,7 +1,7 @@
 # IDN-Sum
 Dataset for Interactive Narrative Summarisation
 
-This repository contains code used to generate data in IDN-Sum[4].  
+This repository contains code used to generate data in paper IDN-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation[4].  https://aclanthology.org/2022.creativesumm-1.1/
 
 Use bts_readerbot branch to generate playthroughs of Before the Storm and wau_readerbot branch to generate playthroughs for Wolf Among Us.
 
@@ -72,6 +72,7 @@ If you have any questions, please email atr1n17@soton.ac.uk
 
 ## Citation:
 Cite the following paper if using this dataset:
+```
 @inproceedings{revi-etal-2022-idn,
     title = "{IDN}-Sum: A New Dataset for Interactive Digital Narrative Extractive Text Summarisation",
     author = "Revi, Ashwathy T.  and
@@ -86,4 +87,4 @@ Cite the following paper if using this dataset:
     pages = "1--12",
     abstract = "Summarizing Interactive Digital Narratives (IDN) presents some unique challenges to existing text summarization models especially around capturing interactive elements in addition to important plot points. In this paper, we describe the first IDN dataset (IDN-Sum) designed specifically for training and testing IDN text summarization algorithms. Our dataset is generated using random playthroughs of 8 IDN episodes, taken from 2 different IDN games, and consists of 10,000 documents. Playthrough documents are annotated through automatic alignment with fan-sourced summaries using a commonly used alignment algorithm. We also report and discuss results from experiments applying common baseline extractive text summarization algorithms to this dataset. Qualitative analysis of the results reveals shortcomings in common annotation approaches and evaluation methods when applied to narrative and interactive narrative datasets. The dataset is released as open source for future researchers to train and test their own approaches for IDN text.",
 }
-
+```
