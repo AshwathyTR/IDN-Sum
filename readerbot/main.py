@@ -7,7 +7,7 @@ Created on Tue Jul 27 13:19:17 2021
 import sys
 import os
 from parse_html import get_parsed_script
-from readerbot import get_maxvar_play
+from readerbot import get_script_playthrough
 import json
 import codecs
 import requests

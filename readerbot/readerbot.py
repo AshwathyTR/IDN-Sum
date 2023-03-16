@@ -177,8 +177,8 @@ def update_backtalk(choice, state):
     return state
   
 def eval_counter_bool(count, condition):
-     """
-     Evaluates a boolean expression involving a counter.
+    """
+    Evaluates a boolean expression involving a counter.
 
     Args:
     count (int): the value of the counter to be evaluated.
@@ -266,7 +266,7 @@ def update_state(counters, choice, state):
     # update the counters and flags based on the current choice
     for counter in counters.keys():
         if choice in counters[counter]["triggers"].keys():
-            state[counter] = state[counter] + float(counters[counter]["triggers"][choice)               
+            state[counter] = state[counter] + float(counters[counter]["triggers"][choice])              
             flags = get_flags(state[counter], counters[counter]['flag_thresholds'])
             for flag in counters[counter]['flag_thresholds'].keys():
                 if flag in flags and flag not in state['flags']:
@@ -276,7 +276,7 @@ def update_state(counters, choice, state):
                     
     # initialize the backtalk state if the current choice triggers backtalk                 
     if choice in bt_triggers.keys():
-        state = init_backtalk(state, bt_triggers[choice)
+        state = init_backtalk(state, bt_triggers[choice])
     
     # add flags to the state dictionary if the current choice triggers flag-setting                                             
     if choice in set_triggers.keys():
