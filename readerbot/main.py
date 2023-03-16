@@ -77,7 +77,7 @@ def get_maxvar_plays(count, parsed_script, save_path):
     choices_covered = []
     for index in range(0,count,1):
         print(index)
-        sample = get_maxvar_play(parsed_script, choices_covered)
+        sample = get_script_playthrough(parsed_script, choices_covered)
         choices_covered.append(sample[1])
         write_files(save_path, sample, index)
 
