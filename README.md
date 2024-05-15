@@ -54,8 +54,7 @@ The readerbot simulates playthroughs but doesn't perfectly mimic the game.
 
 
 ## Models:
-Models were trained using scripts from TransformerSum[1] and Summarunner[2]. Summarunner-long was trained using small modifications to the original Summarunner script, allowing it to accept a maximum document length. A fork of Summarunner with this modification can be found at <link to be added>.
-Models can be downloaded from [link to be added].
+Models were trained using scripts from TransformerSum[1] and Summarunner[2]. 
 
 ## Results:
 Predictions were made using scripts from TransformerSum and SumaRuNNer. ROUGE scores were calculated using eval script from SummaRuNNer. Output from these models can be found at [link to be added]. Results are shown below along with rand-n (random n sentences), lead-n (first n sentences) and textrank (from gensim[3]) baselines for reference:
